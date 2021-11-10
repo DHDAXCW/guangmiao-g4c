@@ -1,0 +1,44 @@
+From 1be280a30d1b315a1d4b8766b527112166a5dc5b Mon Sep 17 00:00:00 2001
+From: GitHub <git@github.com>
+Date: Wed, 10 Nov 2021 09:15:03 +0800
+Subject: [PATCH] cpu_fuck_g4c
+
+---
+ .../patches-5.4/993-cpu_fuck-g4c.patch        | 25 +++++++++++++++++++
+ 1 file changed, 25 insertions(+)
+ create mode 100644 target/linux/rockchip/patches-5.4/993-cpu_fuck-g4c.patch
+
+diff --git a/target/linux/rockchip/patches-5.4/993-cpu_fuck-g4c.patch b/target/linux/rockchip/patches-5.4/993-cpu_fuck-g4c.patch
+new file mode 100644
+index 0000000..d4cc653
+--- /dev/null
++++ b/target/linux/rockchip/patches-5.4/993-cpu_fuck-g4c.patch
+@@ -0,0 +1,25 @@
++From 2ed1034e0ba6b86951fd281eb45293f348aa3148 Mon Sep 17 00:00:00 2001
++From: GitHub <git@github.com>
++Date: Wed, 10 Nov 2021 09:09:13 +0800
++Subject: [PATCH] cpu_fuck
++
++---
++ arch/arm64/boot/dts/rockchip/rk3399-guangmiao-g4c.dts | 2 +-
++ 1 file changed, 1 insertion(+), 1 deletion(-)
++
++diff --git a/arch/arm64/boot/dts/rockchip/rk3399-guangmiao-g4c.dts b/arch/arm64/boot/dts/rockchip/rk3399-guangmiao-g4c.dts
++index fca9465ed..22acf33ae 100644
++--- a/arch/arm64/boot/dts/rockchip/rk3399-guangmiao-g4c.dts
+++++ b/arch/arm64/boot/dts/rockchip/rk3399-guangmiao-g4c.dts
++@@ -3,7 +3,7 @@
++ /dts-v1/;
++ #include <dt-bindings/input/linux-event-codes.h>
++ #include "rk3399.dtsi"
++-#include "rk3399-opp.dtsi"
+++#include "rk3399-nanopi4-opp.dtsi"
++ 
++ / {
++ 	model = "Sharevdi Technology G4C";
++-- 
++2.25.1
++
+-- 
+2.25.1
+
