@@ -1,0 +1,44 @@
+From 6af9e6395ce1e94345715c473d821c83c5816d54 Mon Sep 17 00:00:00 2001
+From: GitHub <git@github.com>
+Date: Mon, 22 Nov 2021 10:10:42 +0800
+Subject: [PATCH] lscpu
+
+---
+ .../rockchip/patches-5.4/999-lscpu.patch      | 25 +++++++++++++++++++
+ 1 file changed, 25 insertions(+)
+ create mode 100644 target/linux/rockchip/patches-5.4/999-lscpu.patch
+
+diff --git a/target/linux/rockchip/patches-5.4/999-lscpu.patch b/target/linux/rockchip/patches-5.4/999-lscpu.patch
+new file mode 100644
+index 000000000..c92f42e82
+--- /dev/null
++++ b/target/linux/rockchip/patches-5.4/999-lscpu.patch
+@@ -0,0 +1,25 @@
++From 3d08ee73d620ddf4f5842a6c09fb623b227da3de Mon Sep 17 00:00:00 2001
++From: GitHub <git@github.com>
++Date: Mon, 22 Nov 2021 10:08:07 +0800
++Subject: [PATCH] lscpu
++
++---
++ arch/arm64/boot/dts/rockchip/rk3399-orangepi.dts | 2 +-
++ 1 file changed, 1 insertion(+), 1 deletion(-)
++
++diff --git a/arch/arm64/boot/dts/rockchip/rk3399-orangepi.dts b/arch/arm64/boot/dts/rockchip/rk3399-orangepi.dts
++index 9c659f3..c9e18ab 100644
++--- a/arch/arm64/boot/dts/rockchip/rk3399-orangepi.dts
+++++ b/arch/arm64/boot/dts/rockchip/rk3399-orangepi.dts
++@@ -8,7 +8,7 @@
++ #include "dt-bindings/pwm/pwm.h"
++ #include "dt-bindings/input/input.h"
++ #include "rk3399.dtsi"
++-#include "rk3399-opp.dtsi"
+++#include "rk3399-nanopi4-opp.dtsi"
++ 
++ / {
++ 	model = "Orange Pi RK3399 Board";
++-- 
++2.25.1
++
+-- 
+2.25.1
+
