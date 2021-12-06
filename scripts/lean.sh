@@ -3,6 +3,10 @@
 # Add luci-app-ssr-plus
 pushd package/lean
 git clone --depth=1 https://github.com/fw876/helloworld
+
+# Add luci-app-unblockneteasemusic
+rm -rf luci-app-unblockmusic
+git clone https://github.com/UnblockNeteaseMusic/luci-app-unblockneteasemusic.git
 popd
 
 # Clone community packages to package/community
@@ -53,12 +57,16 @@ git clone --depth=1 https://github.com/NateLol/luci-app-oled
 git clone --depth=1 https://github.com/tty228/luci-app-serverchan
 
 # Add luci-app-diskman
-git clone --depth=1 https://github.com/SuLingGG/luci-app-diskman
-mkdir parted
-cp luci-app-diskman/Parted.Makefile parted/Makefile
+# git clone --depth=1 https://github.com/SuLingGG/luci-app-diskman
+# mkdir parted
+# cp luci-app-diskman/Parted.Makefile parted/Makefile
+
+# Add luci-app-ikoolproxy (godproxy)
+git clone https://github.com/iwrt/luci-app-ikoolproxy.git
 
 # Add luci-app-dockerman
 rm -rf ../lean/luci-app-docker
+rm -rf ../lean/luci-app-dockerman
 git clone --depth=1 https://github.com/lisaac/luci-app-dockerman
 git clone --depth=1 https://github.com/lisaac/luci-lib-docker
 
@@ -98,6 +106,10 @@ svn co https://github.com/zcy85611/Openwrt-Package/trunk/udpspeeder-tunnel
 git clone --depth=1 https://github.com/destan19/OpenAppFilter
 popd
 
+# Add luci-aliyundrive-webdav
+svn co https://github.com/messense/aliyundrive-webdav/trunk/openwrt/aliyundrive-webdav
+svn co https://github.com/messense/aliyundrive-webdav/trunk/openwrt/luci-app-aliyundrive-webdav
+
 # Add cpufreq
 rm -rf package/lean/luci-app-cpufreq
 svn co https://github.com/immortalwrt/luci/trunk/applications/luci-app-cpufreq feeds/luci/applications/luci-app-cpufreq
@@ -105,10 +117,6 @@ ln -sf ../../../feeds/luci/applications/luci-app-cpufreq ./package/feeds/luci/lu
 sed -i 's,1608,1800,g' feeds/luci/applications/luci-app-cpufreq/root/etc/uci-defaults/cpufreq
 sed -i 's,2016,2208,g' feeds/luci/applications/luci-app-cpufreq/root/etc/uci-defaults/cpufreq
 sed -i 's,1512,1608,g' feeds/luci/applications/luci-app-cpufreq/root/etc/uci-defaults/cpufreq
-
-# Add luci-aliyundrive-webdav
-svn co https://github.com/messense/aliyundrive-webdav/trunk/openwrt/aliyundrive-webdav
-svn co https://github.com/messense/aliyundrive-webdav/trunk/openwrt/luci-app-aliyundrive-webdav
 
 # 动态DNS
 git clone --depth 1 https://github.com/small-5/ddns-scripts-dnspod package/lean/ddns-scripts_dnspod
@@ -132,10 +140,10 @@ sed -i "s/${orig_version}/${orig_version} (${date_version})/g" zzz-default-setti
 popd
 
 # Fix libssh
-pushd feeds/packages/libs
-rm -rf libssh
-svn co https://github.com/openwrt/packages/trunk/libs/libssh
-popd
+# pushd feeds/packages/libs
+# rm -rf libssh
+# svn co https://github.com/openwrt/packages/trunk/libs/libssh
+# popd
 
 # Use Lienol's https-dns-proxy package
 pushd feeds/packages/net
@@ -176,9 +184,13 @@ sed -i "s/OpenWrt /DHDAXCW @ FusionWrt $(TZ=UTC-8 date "+%Y%m%d") /g" package/le
 
 # Custom configs
 # git am $GITHUB_WORKSPACE/patches/lean/*.patch
-git am $GITHUB_WORKSPACE/patchs/*.patch
+git am $GITHUB_WORKSPACE/patches/*.patch
 echo -e " DHDAXCW's FusionWrt built on "$(date +%Y.%m.%d)"\n -----------------------------------------------------" >> package/base-files/files/etc/banner
 echo 'net.bridge.bridge-nf-call-iptables=0' >> package/base-files/files/etc/sysctl.conf
 echo 'net.bridge.bridge-nf-call-ip6tables=0' >> package/base-files/files/etc/sysctl.conf
 echo 'net.bridge.bridge-nf-call-arptables=0' >> package/base-files/files/etc/sysctl.conf
 echo 'net.bridge.bridge-nf-filter-vlan-tagged=0' >> package/base-files/files/etc/sysctl.conf
+# Add CUPInfo
+# pushd package/lean/autocore/files/arm/sbin
+# cp -f $GITHUB_WORKSPACE/scripts/cpuinfo cpuinfo
+# popd
