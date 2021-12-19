@@ -13,6 +13,10 @@ git clone --depth=1 https://github.com/Lienol/openwrt-package
 rm -rf openwrt-package/verysync
 rm -rf openwrt-package/luci-app-verysync
 
+# Add luci-app-netdata
+rm -rf ../lean/luci-app-netdata
+git clone https://github.com/sirpdboy/luci-app-netdata
+
 # Add luci-app-ssr-plus
 git clone --depth=1 https://github.com/fw876/helloworld.git
 
